@@ -1,6 +1,7 @@
 package com.lx.mylibrary.conn;
 
 
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,11 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 
 public class RetrofitUtils {
@@ -27,7 +32,7 @@ public class RetrofitUtils {
                 .writeTimeout(timeOut, TimeUnit.MILLISECONDS)
                 .readTimeout(timeOut, TimeUnit.MILLISECONDS)
                 .callTimeout(timeOut, TimeUnit.MILLISECONDS);
-
+        builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
         return builder.build();
 
     }
@@ -42,6 +47,8 @@ public class RetrofitUtils {
         sRetrofit = new Retrofit.Builder()
                 .baseUrl("http://www.lx.cc")
                 .client(getOkhttpClient())
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
     }
 

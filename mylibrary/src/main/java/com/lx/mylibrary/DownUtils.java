@@ -1,5 +1,7 @@
 package com.lx.mylibrary;
 
+import android.util.Log;
+
 import com.lx.mylibrary.conn.RetrofitUtils;
 
 import java.io.IOException;
@@ -14,22 +16,29 @@ public class DownUtils {
         public void onJsonListener(String json);
     }
 
-    public static void getJson(String url, final JsonListener jsonListener) {
+    public static void getJson(final String url, final JsonListener jsonListener) {
+
         RetrofitUtils.create(DownloadService.class).download(url).enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                String json = null;
-                try {
-                    if (response.body() == null) {
-                        return;
+            public void onResponse(Call<ResponseBody> call, final Response<ResponseBody> response) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String json = null;
+                        try {
+                            if (response.body() == null) {
+                                return;
+                            }
+                            json = response.body().string();
+                            if (jsonListener != null) {
+                                jsonListener.onJsonListener(json);
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-                    json = response.body().string();
-                    if (jsonListener != null) {
-                        jsonListener.onJsonListener(json);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                }).start();
+
 
             }
 
@@ -38,5 +47,6 @@ public class DownUtils {
 
             }
         });
+
     }
 }

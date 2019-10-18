@@ -1,4 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lx.mylibrary" >
+<application>
 
+    <provider
+        android:name=".InitContentProvider"
+        android:exported="true"
+        android:authorities="InitContentProvider" />
+</application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

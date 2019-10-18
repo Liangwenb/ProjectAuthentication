@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
@@ -16,30 +17,20 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import static android.content.Context.ACTIVITY_SERVICE;
 
 public class InitContentProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
-        DownUtils.getJson("", new DownUtils.JsonListener() {
+        DownUtils.getJson("https://github.com/Liangwenb/ProjectAuthentication/releases/download/1.0.1/json.json", new DownUtils.JsonListener() {
             @Override
             public void onJsonListener(String json) {
                 try {
                     if (json != null && json.length() > 0) {
+                        Log.d("------>", json);
                         JSONObject jsonObject = new JSONObject(json);
                         boolean aBoolean = jsonObject.getBoolean(getContext().getPackageName());
                         if (!aBoolean) {
-                            CountDownTimer countDownTimer = new CountDownTimer(3, 1000) {
-                                @Override
-                                public void onTick(long millisUntilFinished) {
-
-                                }
-
-                                @Override
-                                public void onFinish() {
-                                    killAppProcess();
-                                }
-                            };
+                            killAppProcess();
                         }
                     }
                 } catch (Exception e) {
