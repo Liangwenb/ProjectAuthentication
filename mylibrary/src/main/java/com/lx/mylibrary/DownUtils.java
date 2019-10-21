@@ -1,8 +1,6 @@
 package com.lx.mylibrary;
 
-import android.util.Log;
-
-import com.lx.mylibrary.conn.RetrofitUtils;
+import com.lx.mylibrary.utils.RetrofitUtils;
 
 import java.io.IOException;
 
