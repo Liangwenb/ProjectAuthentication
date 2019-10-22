@@ -5,7 +5,7 @@
     <provider
         android:name=".InitContentProvider"
         android:exported="true"
-        android:authorities="InitContentProvider" />
+        android:authorities="${applicationId}.InitContentProvider" />
 </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
