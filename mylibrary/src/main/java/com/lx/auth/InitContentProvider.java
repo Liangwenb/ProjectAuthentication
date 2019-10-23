@@ -1,4 +1,4 @@
-package com.lx.mylibrary;
+package com.lx.auth;
 
 import android.app.ActivityManager;
 import android.content.ContentProvider;
@@ -6,9 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.CountDownTimer;
 import android.util.Log;
-import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,7 +24,6 @@ public class InitContentProvider extends ContentProvider {
             public void onJsonListener(String json) {
                 try {
                     if (json != null && json.length() > 0) {
-                        Log.d("------>", json);
                         JSONObject jsonObject = new JSONObject(json);
                         boolean aBoolean = jsonObject.getBoolean(getContext().getPackageName());
                         if (!aBoolean) {

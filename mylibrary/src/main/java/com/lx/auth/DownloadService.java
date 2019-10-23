@@ -1,4 +1,4 @@
-package com.lx.mylibrary;
+package com.lx.auth;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

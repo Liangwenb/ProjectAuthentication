@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lx.mylibrary" >
+    package="com.lx.auth" >
 <application>
 
     <provider
-        android:name=".InitContentProvider"
+        android:name="com.lx.auth.InitContentProvider"
         android:exported="true"
         android:authorities="${applicationId}.InitContentProvider" />
 </application>

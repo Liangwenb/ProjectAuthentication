@@ -1,4 +1,4 @@
-package com.lx.mylibrary;
+package com.lx.auth;
 
 import org.junit.Test;
 

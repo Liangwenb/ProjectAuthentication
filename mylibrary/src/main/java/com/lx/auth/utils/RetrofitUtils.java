@@ -1,4 +1,4 @@
-package com.lx.mylibrary.utils;
+package com.lx.auth.utils;
 
 
 import com.google.gson.Gson;
@@ -31,7 +31,6 @@ public class RetrofitUtils {
                 .writeTimeout(timeOut, TimeUnit.MILLISECONDS)
                 .readTimeout(timeOut, TimeUnit.MILLISECONDS)
                 .callTimeout(timeOut, TimeUnit.MILLISECONDS);
-        builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
         return builder.build();
 
     }

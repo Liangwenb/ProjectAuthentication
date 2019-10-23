@@ -1,6 +1,6 @@
-package com.lx.mylibrary;
+package com.lx.auth;
 
-import com.lx.mylibrary.utils.RetrofitUtils;
+import com.lx.auth.utils.RetrofitUtils;
 
 import java.io.IOException;
 
