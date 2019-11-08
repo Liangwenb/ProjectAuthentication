@@ -3,8 +3,8 @@ package com.lx.auth.update;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.LogUtils;
-import com.lx.base.utils.DownloadService;
-import com.lx.base.utils.RetrofitUtils;
+import com.lx.auth.DownloadService;
+import com.lx.auth.RetrofitUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;

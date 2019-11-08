@@ -1,4 +1,4 @@
-package com.lx.base.utils;
+package com.lx.auth;
 
 
 import com.google.gson.Gson;

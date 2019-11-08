@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
-import com.lx.base.utils.RetrofitUtils;
+import com.lx.auth.RetrofitUtils;
 
 
 import retrofit2.Call;

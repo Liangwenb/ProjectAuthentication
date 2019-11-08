@@ -1,2 +1,2 @@
-include ':app', ':mylibrary', ':base'
+include ':app', ':mylibrary'
 rootProject.name='Project authentication'

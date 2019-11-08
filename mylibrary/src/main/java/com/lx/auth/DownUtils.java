@@ -1,9 +1,6 @@
 package com.lx.auth;
 
 
-import com.lx.base.utils.DownloadService;
-import com.lx.base.utils.RetrofitUtils;
-
 import java.io.IOException;
 
 import okhttp3.ResponseBody;

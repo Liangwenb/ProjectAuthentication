@@ -2,12 +2,14 @@
     package="com.lx.auth" >
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.INTERNET" />
-<application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application android:networkSecurityConfig="@xml/network_security_config">
     <provider
         android:name="com.lx.auth.InitContentProvider"
         android:exported="false"
         android:authorities="${applicationId}.InitContentProvider" />
 
-</application>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    </application>
 </manifest>
