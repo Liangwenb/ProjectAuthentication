@@ -1,6 +1,8 @@
 package com.lx.auth;
 
-import com.lx.auth.utils.RetrofitUtils;
+
+import com.lx.base.utils.DownloadService;
+import com.lx.base.utils.RetrofitUtils;
 
 import java.io.IOException;
 
