@@ -41,11 +41,11 @@ public class UpdateUtils {
     interface ApkSercice {
         @FormUrlEncoded
         @POST("https://www.pgyer.com/apiv2/app/check")
-        Call<UpdataBean> detect(@Field("_api_key") String apiKey, @Field("appKey") String appKey);
+        Call<UpdataBean> detect(@Field("_api_key") String apiKey, @Field("appKey") String appKey, @Field("buildVersion") String buildVersion);
     }
 
     private static void detect() {
-        RetrofitUtils.create(ApkSercice.class).detect(Info._API_KEY, Info.APP_KEY).enqueue(new Callback<UpdataBean>() {
+        RetrofitUtils.create(ApkSercice.class).detect(Info._API_KEY, Info.APP_KEY,AppUtils.getAppVersionCode()+"").enqueue(new Callback<UpdataBean>() {
             @Override
             public void onResponse(Call<UpdataBean> call, Response<UpdataBean> response) {
                 if (response.isSuccessful() && response.body() != null) {

@@ -110,7 +110,7 @@ public class UpdataBean {
         }
 
         public String getBuildVersionNo() {
-            return buildVersionNo;
+            return buildVersionNo == null ? "0" : buildVersionNo;
         }
 
         public void setBuildVersionNo(String buildVersionNo) {

@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -30,6 +31,7 @@ public class RetrofitUtils {
                 .writeTimeout(timeOut, TimeUnit.MILLISECONDS)
                 .readTimeout(timeOut, TimeUnit.MILLISECONDS)
                 .callTimeout(timeOut, TimeUnit.MILLISECONDS);
+        builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
         return builder.build();
 
     }
