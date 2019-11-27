@@ -14,12 +14,7 @@ public class ActivityLifecycleCallbackIml implements Application.ActivityLifecyc
 
     @Override
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-        if (activity instanceof FragmentActivity) {
-            ((FragmentActivity) activity).getSupportFragmentManager()
-                    .registerFragmentLifecycleCallbacks
-                        // FragmentLifecycleCallbackIml  监听器  ，是否监听fragment内部的Fragement
-                            (new FragmentLifecycleCallbackIml(), true);
-        }
+
     }
 
     @Override
